@@ -1,5 +1,4 @@
 #include "ft.h"
-#include <stdlib.h>
 
 ListNode       *ft_insert(int newValue)
 {
