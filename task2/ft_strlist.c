@@ -25,27 +25,39 @@ int		words_num(char *str)
 	return (words_num);
 }
 
-char	**ft_strlist(char *str)
+char	**ft_strlist(char str[])
 {
 	int		i;
 	int		j;
 	int		k;
+	int 	l;
 	char	**words;
 	char	*str_buf;
 
 	if (!str || !(words = (char **)malloc(sizeof(char *) * (words_num(str) + 1))))
 		return (NULL);
+
 	i = 0;
 	j = 0;
 	k = 0;
+	l = 0;
 	str_buf = str;
 	while (j < words_num(str))
 	{
 		while (its_skip_space(str_buf[k]))
 			k++;
-		words[j] = (char *)malloc(sizeof(char *));
+
+		while (str_buf[k + l] != ' ' || str_buf[k + l] != '\0')
+			l++;
+		
+		words[j] = (char *)malloc(sizeof(char *) * (l + 1));
+
 		while (!its_skip_space(str_buf[k]) || !str_buf[k])
-			words[j][i++] = str_buf[k++];
+		{
+		 	words[j][i] = str_buf[k];
+			i++;
+			k++;
+		}
 		words[j][i] = '\0';
 		j++;
 		i = 0;

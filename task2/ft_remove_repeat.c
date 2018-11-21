@@ -1,7 +1,7 @@
 int     ft_strcmp(char *s1, char *s2);
-void    ft_printlist(char **list, int size);
+void    ft_printlist(char **list, int size, char *str);
 
-char	**ft_remove_repeat(char **list, int size)
+char	**ft_remove_repeat(char **list, int size, char *str)
 {
 	int		i;
 	int		j;
@@ -32,6 +32,6 @@ char	**ft_remove_repeat(char **list, int size)
 		}
 		i++;
 	}
-	ft_printlist(temp, size);
+	ft_printlist(temp, size, str);
 	return (temp);
 }

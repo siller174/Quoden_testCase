@@ -1,4 +1,4 @@
-int	ft_count_repeat(char *str, char *str2)
+int		ft_count_repeat(char *str, char *str2)
 {
 	int		i;
 	int		j;
