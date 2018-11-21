@@ -11,19 +11,21 @@ char	**ft_sortlistspecial(char *str, char **list, int size);
 int		main(int argc, char *argv[])
 {
 	int		size;
-    char   **str;
+    char  	**str;
+	char	line[4096];
 
-	
-	size = words_num(argv[1]);
+	// gets(line);
+	scanf("%[^\n]",line);
+	size = words_num(line);
 	if (size == 0)
 		return (0);
 	if (size == 1)
 	{
-		printf("%s ..........", argv[1]);
+		printf("%s ..........", line);
 		return (0);
 	}
 		
-	str = ft_strlist(argv[1]);
-	 str = ft_sortlistspecial(argv[1] ,str, size);
-	 str = ft_remove_repeat(str, size, argv[1]);
+	str = ft_strlist(line);
+	str = ft_sortlistspecial(line ,str, size);
+	str = ft_remove_repeat(str, size, line);
 }
