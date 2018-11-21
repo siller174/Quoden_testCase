@@ -4,30 +4,33 @@ int     main(int argc, char **argv)
 {
 	int			count;
 	ListNode	*res;
-	ListNode	*temp;
 	ListNode	*start;
+	int			*x;
 	int			t;
 	int			i;
 
+	i = 0;
+	scanf("%d", &count);
+	
+	x = (int*)malloc(sizeof(int*) * (count + 1));
 
-	if (argc < 2)
-		return (0);
-
-	i = 3;
-	count = ft_atoi(argv[1]);
-	res = ft_insert(ft_atoi(argv[2]));
-	count = count + 1;
-	while (i <= count)
+	while (i < count)
 	{
-		res->next = ft_insert(ft_atoi(argv[i]));
+		scanf("%d", &x[i]);
+		i++;
+	}
+
+	i = 1;
+	res = ft_insert(x[0]);
+	start = res;
+
+	while (i < count)
+	{
+		res->next = ft_insert(x[i]);
 		res = res->next;
 		i++;
 	}
-	start = start->next;
-	while (start)
-    {
-        printf("%d\n", start->value);
-        start = start->next;
-    }
+	
+    ft_printtable(start, count);
 	return (0);
 }
