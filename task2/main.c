@@ -24,6 +24,6 @@ int		main(int argc, char *argv[])
 	}
 		
 	str = ft_strlist(argv[1]);
-	// str = ft_sortlistspecial(argv[1] ,str, size);
-	// str = ft_remove_repeat(str, size, argv[1]);
+	 str = ft_sortlistspecial(argv[1] ,str, size);
+	 str = ft_remove_repeat(str, size, argv[1]);
 }

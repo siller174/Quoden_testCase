@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 int		its_skip_space(char c)
 {
@@ -25,12 +26,11 @@ int		words_num(char *str)
 	return (words_num);
 }
 
-char	**ft_strlist(char str[])
+char	**ft_strlist(char *str)
 {
 	int		i;
 	int		j;
 	int		k;
-	int 	l;
 	char	**words;
 	char	*str_buf;
 
@@ -40,23 +40,19 @@ char	**ft_strlist(char str[])
 	i = 0;
 	j = 0;
 	k = 0;
-	l = 0;
 	str_buf = str;
 	while (j < words_num(str))
 	{
 		while (its_skip_space(str_buf[k]))
 			k++;
-
-		while (str_buf[k + l] != ' ' || str_buf[k + l] != '\0')
-			l++;
 		
-		words[j] = (char *)malloc(sizeof(char *) * (l + 1));
+		words[j] = (char *)malloc(sizeof(char *));
 
-		while (!its_skip_space(str_buf[k]) || !str_buf[k])
+		while (!its_skip_space(str_buf[k]) && str_buf[k] != '\0')
 		{
 		 	words[j][i] = str_buf[k];
 			i++;
-			k++;
+			 k++;
 		}
 		words[j][i] = '\0';
 		j++;
